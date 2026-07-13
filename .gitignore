@@ -1,0 +1,5 @@
+.DS_Store
+*.mp4
+*.jpeg
+I.T PICTURES/
+!draw-and-learn/assets/demo.mp4

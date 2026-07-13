@@ -94,6 +94,10 @@
   .shot.missing{display:none}
   .shots-hint{color:var(--muted);font-style:italic;margin-top:24px;text-align:center}
 
+  /* demo video */
+  .demo-wrap{display:flex;justify-content:center}
+  .demo{width:100%;max-width:360px;border-radius:26px;border:1px solid var(--panel-edge);box-shadow:0 18px 50px rgba(0,0,0,.45);background:#000;display:block}
+
   /* stack */
   .stack{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:6px}
   .stack li{background:var(--panel);border:1px solid var(--panel-edge);border-radius:10px;padding:12px 16px;color:var(--muted);font-size:.95rem}
@@ -165,18 +169,22 @@
 
   <section>
     <div class="wrap">
-      <p class="sec-label">Screens</p>
+      <p class="sec-label">Demo</p>
       <h2>The app in action</h2>
-      <p class="sec-lead">A look at a few of the screens.</p>
-      <div class="shots" id="shots">
-        <figure class="shot"><img loading="lazy" src="assets/screenshots/home.png" alt="Home screen" onerror="this.closest('figure').classList.add('missing')"><figcaption>Home</figcaption></figure>
-        <figure class="shot"><img loading="lazy" src="assets/screenshots/drawing.png" alt="Drawing and tracing screen" onerror="this.closest('figure').classList.add('missing')"><figcaption>Trace &amp; draw</figcaption></figure>
-        <figure class="shot"><img loading="lazy" src="assets/screenshots/coloring.png" alt="Guided colouring result" onerror="this.closest('figure').classList.add('missing')"><figcaption>Guided colouring</figcaption></figure>
-        <figure class="shot"><img loading="lazy" src="assets/screenshots/gallery.png" alt="Category gallery" onerror="this.closest('figure').classList.add('missing')"><figcaption>Gallery</figcaption></figure>
-        <figure class="shot"><img loading="lazy" src="assets/screenshots/dashboard.png" alt="Parent dashboard" onerror="this.closest('figure').classList.add('missing')"><figcaption>Parent dashboard</figcaption></figure>
-        <figure class="shot"><img loading="lazy" src="assets/screenshots/paywall.png" alt="Subscription paywall" onerror="this.closest('figure').classList.add('missing')"><figcaption>Subscriptions</figcaption></figure>
+      <p class="sec-lead">A short screen recording of a child tracing and colouring their first drawing.</p>
+      <div class="demo-wrap">
+        <video class="demo" controls muted loop playsinline preload="metadata" poster="assets/screenshots/home.jpg">
+          <source src="assets/demo.mp4" type="video/mp4">
+          Your browser doesn't support embedded video. <a href="assets/demo.mp4">Download the demo</a>.
+        </video>
       </div>
-      <p class="shots-hint" id="shots-hint">Screenshots coming soon.</p>
+      <div class="shots" id="shots" style="margin-top:40px">
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/home.jpg" alt="Home screen with category grid and Bob the mascot"><figcaption>Home &amp; daily challenge</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/languages.jpg" alt="Language picker showing 18 languages"><figcaption>18 languages</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/gallery.jpg" alt="Animals category with items to draw"><figcaption>Pick what to draw</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/drawing.jpg" alt="Guided tracing screen with drawing tools"><figcaption>Trace &amp; draw</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/coloring.jpg" alt="A finished, colourfully traced dog"><figcaption>Finished artwork</figcaption></figure>
+      </div>
     </div>
   </section>
 
@@ -221,16 +229,6 @@
     <p class="foot-note">The source code is private; this page is a portfolio showcase. &nbsp;·&nbsp; <a href="../index.html#projects">Back to portfolio</a></p>
   </div>
 </footer>
-
-<script>
-  window.addEventListener('load', function () {
-    var loaded = Array.prototype.some.call(
-      document.querySelectorAll('#shots img'),
-      function (img) { return img.complete && img.naturalWidth > 0; }
-    );
-    if (loaded) { var h = document.getElementById('shots-hint'); if (h) h.style.display = 'none'; }
-  });
-</script>
 
 </body>
 </html>
