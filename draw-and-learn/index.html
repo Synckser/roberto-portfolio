@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draw &amp; Learn — iOS app · Roberto Pires Almeida</title>
+<meta name="description" content="Draw & Learn — a children's educational drawing and tracing app for iOS. Built with SwiftUI, PencilKit and StoreKit 2, featuring a custom flood-fill colouring engine, an animated mascot and 18-language text-to-speech.">
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#0E1726;
+    --panel:#16233A;
+    --panel-edge:#243654;
+    --ink:#EAF1FB;
+    --muted:#93A5C0;
+    --corn:#FFC53D;
+    --corn-deep:#E0A415;
+    --sky:#7FB8E6;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--night);color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--sky)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--corn);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+
+  /* header */
+  header{
+    position:sticky;top:0;z-index:10;
+    background:rgba(14,23,38,.85);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--panel-edge);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;letter-spacing:.02em}
+  .brand span{color:var(--corn)}
+  .back{font-family:"IBM Plex Mono",monospace;font-size:.88rem;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--corn)}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:80px 0 56px}
+  .sun{
+    position:absolute;width:520px;height:520px;border-radius:50%;
+    right:-160px;top:-180px;pointer-events:none;
+    background:radial-gradient(circle,rgba(255,197,61,.28) 0%,rgba(255,197,61,.10) 42%,transparent 70%);
+    animation:breathe 7s ease-in-out infinite;
+  }
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+  @media(prefers-reduced-motion:reduce){.sun{animation:none}}
+  .hero-inner{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
+  .app-icon{width:112px;height:112px;border-radius:25%;box-shadow:0 12px 40px rgba(0,0,0,.4);flex:none}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--corn);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+  h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.12;letter-spacing:-.015em}
+  h1 em{font-style:normal;color:var(--corn)}
+  .lede{max-width:60ch;color:var(--muted);margin-top:18px}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--sky);border:1px solid var(--panel-edge);border-radius:999px;padding:3px 10px}
+  .status-line{margin-top:22px;font-family:"IBM Plex Mono",monospace;font-size:.85rem;color:var(--muted)}
+  .status-line b{color:var(--corn);font-weight:500}
+
+  /* sections */
+  section{padding:56px 0}
+  .sec-label{font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--corn);margin-bottom:10px}
+  h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.7rem;margin-bottom:10px}
+  .sec-lead{color:var(--muted);max-width:60ch;margin-bottom:28px}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:8px 0 8px}
+  .stat{background:var(--panel);border:1px solid var(--panel-edge);border-radius:var(--radius);padding:20px 12px;text-align:center}
+  .stat b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:800;color:var(--corn)}
+  .stat span{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--muted)}
+
+  /* card grids */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+  .card{background:var(--panel);border:1px solid var(--panel-edge);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:10px;transition:border-color .15s ease,transform .15s ease}
+  .card:hover{border-color:var(--corn);transform:translateY(-3px)}
+  .card .ico{font-size:1.6rem}
+  .card h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.15rem}
+  .card p{color:var(--muted);font-size:.95rem}
+  .card code{font-family:"IBM Plex Mono",monospace;font-size:.82em;background:rgba(0,0,0,.3);color:#FFE0B5;padding:1px 6px;border-radius:5px}
+
+  /* screenshots */
+  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px}
+  .shot{text-align:center}
+  .shot img{width:100%;border-radius:20px;border:1px solid var(--panel-edge);box-shadow:0 12px 40px rgba(0,0,0,.35);background:var(--panel);display:block}
+  .shot figcaption{margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--muted)}
+  .shot.missing{display:none}
+  .shots-hint{color:var(--muted);font-style:italic;margin-top:24px;text-align:center}
+
+  /* stack */
+  .stack{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:6px}
+  .stack li{background:var(--panel);border:1px solid var(--panel-edge);border-radius:10px;padding:12px 16px;color:var(--muted);font-size:.95rem}
+  .stack strong{color:var(--ink)}
+
+  /* footer */
+  footer{border-top:1px solid var(--panel-edge);padding:48px 0 60px;text-align:center}
+  footer p{color:var(--muted);margin:6px 0}
+  .foot-note{margin-top:28px;font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--muted)}
+
+  @media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../index.html#projects">roberto<span>.</span>pires<span>.</span>almeida</a>
+    <a class="back" href="../index.html#projects">&larr; Back to portfolio</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <img class="app-icon" src="assets/icon.png" alt="Draw & Learn app icon">
+      <div>
+        <p class="eyebrow">iOS · SwiftUI · Independent project</p>
+        <h1>Draw &amp; Learn — a drawing app kids <em>actually learn</em> from.</h1>
+        <p class="lede">A native iOS app where children trace, colour and learn words in their own language,
+           guided by an animated mascot. I design and build it end to end — from the drawing engine to
+           the App Store submission.</p>
+        <div class="tags">
+          <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">PencilKit</span>
+          <span class="tag">StoreKit 2</span><span class="tag">AVFoundation</span><span class="tag">Core Graphics</span>
+        </div>
+        <p class="status-line">Status: <b>going through App Store submission</b></p>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><b>505</b><span>illustrated items</span></div>
+        <div class="stat"><b>29</b><span>categories</span></div>
+        <div class="stat"><b>18</b><span>languages</span></div>
+        <div class="stat"><b>100%</b><span>native SwiftUI</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="sec-label">Features</p>
+      <h2>What it does</h2>
+      <p class="sec-lead">A playful, safe learning environment — trace, colour, and hear every word spoken aloud.</p>
+      <div class="grid">
+        <article class="card"><div class="ico">🎨</div><h3>Smart guided colouring</h3><p>Tap to fill any region with a custom flood-fill engine that respects outlines perfectly — no bleeding across lines, and an instant response.</p></article>
+        <article class="card"><div class="ico">✏️</div><h3>Trace &amp; free-draw</h3><p>Guided tracing with adjustable difficulty, plus a blank PencilKit canvas for free creativity, with full undo / redo history.</p></article>
+        <article class="card"><div class="ico">🐵</div><h3>Bob, the mascot</h3><p>An animated companion with emotion states and interactive taps who flies in to guide, celebrate and encourage.</p></article>
+        <article class="card"><div class="ico">🗣️</div><h3>18-language pronunciation</h3><p>Every word spoken aloud through on-device text-to-speech, with dedicated phonics packs for early readers.</p></article>
+        <article class="card"><div class="ico">🏆</div><h3>Daily challenges &amp; rewards</h3><p>A fresh challenge each day, star ratings, confetti celebrations and stroke-by-stroke replay of finished drawings.</p></article>
+        <article class="card"><div class="ico">👨‍👩‍👧</div><h3>Parent dashboard</h3><p>Progress tracking per category, a parental gate, and StoreKit 2 subscriptions with restore support.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="sec-label">Screens</p>
+      <h2>The app in action</h2>
+      <p class="sec-lead">A look at a few of the screens.</p>
+      <div class="shots" id="shots">
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/home.png" alt="Home screen" onerror="this.closest('figure').classList.add('missing')"><figcaption>Home</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/drawing.png" alt="Drawing and tracing screen" onerror="this.closest('figure').classList.add('missing')"><figcaption>Trace &amp; draw</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/coloring.png" alt="Guided colouring result" onerror="this.closest('figure').classList.add('missing')"><figcaption>Guided colouring</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/gallery.png" alt="Category gallery" onerror="this.closest('figure').classList.add('missing')"><figcaption>Gallery</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/dashboard.png" alt="Parent dashboard" onerror="this.closest('figure').classList.add('missing')"><figcaption>Parent dashboard</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/paywall.png" alt="Subscription paywall" onerror="this.closest('figure').classList.add('missing')"><figcaption>Subscriptions</figcaption></figure>
+      </div>
+      <p class="shots-hint" id="shots-hint">Screenshots coming soon.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="sec-label">Engineering</p>
+      <h2>Under the hood</h2>
+      <p class="sec-lead">The parts I'm most proud of — where the interesting engineering lives.</p>
+      <div class="grid">
+        <article class="card"><h3>Custom flood-fill engine</h3><p>Bucket colouring is a hand-written Core Graphics algorithm: an 8-directional ray-cast picks the correct seed pixel even when a child taps on an outline, RGB-sum barriers stop fills at lines, and offline-generated per-guide region maps give pixel-perfect containment with instant response — no async, no spinners.</p></article>
+        <article class="card"><h3>MVVM + manager singletons</h3><p>SwiftUI views back onto focused view models, with 11 <code>ObservableObject</code> managers each owning one concern: sound, speech, localisation, difficulty, progress, subscriptions, replay and more.</p></article>
+        <article class="card"><h3>Modern concurrency</h3><p>Strictly async / await — no Combine. Audio runs on a <code>nonisolated static</code> pipeline off the main thread, while <code>@Published</code> state is mutated on the MainActor to keep the canvas glassy-smooth.</p></article>
+        <article class="card"><h3>Localisation system</h3><p>A JSON language-pack loader delivers translations and phonics for 18 languages, with inline bundled fallbacks so the app is never left without content.</p></article>
+        <article class="card"><h3>StoreKit 2 subscriptions</h3><p>A transaction listener drives entitlement state, with restore support and a parental gate — built on Apple's current StoreKit 2 APIs.</p></article>
+        <article class="card"><h3>Child-safe by design</h3><p>No force-unwraps on any path a child can reach, 44pt+ tap targets, graceful fallbacks for missing data, and Reduce Motion support that swaps every animation for a static alternative.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="sec-label">Stack</p>
+      <h2>Tech stack</h2>
+      <ul class="stack">
+        <li><strong>Language:</strong> Swift</li>
+        <li><strong>UI:</strong> SwiftUI</li>
+        <li><strong>Drawing:</strong> PencilKit + Core Graphics</li>
+        <li><strong>Audio &amp; speech:</strong> AVFoundation / AVSpeechSynthesizer</li>
+        <li><strong>Monetisation:</strong> StoreKit 2</li>
+        <li><strong>Concurrency:</strong> async / await (no Combine)</li>
+        <li><strong>Architecture:</strong> MVVM + ObservableObject managers</li>
+        <li><strong>AI pipeline:</strong> ElevenLabs / Gemini for voice &amp; sound assets</li>
+        <li><strong>Testing:</strong> Swift Testing + XCUIAutomation</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Draw &amp; Learn — a personal iOS project by Roberto Pires Almeida.</p>
+    <p class="foot-note">The source code is private; this page is a portfolio showcase. &nbsp;·&nbsp; <a href="../index.html#projects">Back to portfolio</a></p>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('load', function () {
+    var loaded = Array.prototype.some.call(
+      document.querySelectorAll('#shots img'),
+      function (img) { return img.complete && img.naturalWidth > 0; }
+    );
+    if (loaded) { var h = document.getElementById('shots-hint'); if (h) h.style.display = 'none'; }
+  });
+</script>
+
+</body>
+</html>
