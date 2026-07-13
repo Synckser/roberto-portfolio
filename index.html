@@ -119,6 +119,37 @@
   .card-shots.data-shots img{height:104px;object-position:center}
   @media(max-width:640px){.card-shots img{height:150px}}
 
+  /* ---------- hardware maintenance ---------- */
+  .hardware-hero{
+    margin-bottom:20px;overflow:hidden;border:1px solid var(--panel-edge);
+    border-radius:var(--radius);background:var(--panel);
+  }
+  .hardware-hero img{width:100%;height:360px;object-fit:cover;display:block}
+  .hardware-copy{
+    padding:28px 30px;border-top:1px solid var(--panel-edge);
+    display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start;
+  }
+  .hardware-copy p{color:var(--muted)}
+  .hardware-list{display:grid;gap:12px;list-style:none}
+  .hardware-list li{
+    color:var(--muted);padding-left:24px;position:relative;
+  }
+  .hardware-list li::before{content:"\2713";position:absolute;left:0;color:var(--corn);font-weight:800}
+  .hardware-list strong{color:var(--ink)}
+  .repair-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .repair-card{
+    background:var(--panel);border:1px solid var(--panel-edge);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+  }
+  .repair-card img{width:100%;height:210px;object-fit:cover;display:block}
+  .repair-card div{padding:22px}
+  .repair-card h3{font-family:"Bricolage Grotesque",sans-serif;font-size:1.12rem;margin-bottom:8px}
+  .repair-card p{color:var(--muted);font-size:.94rem}
+  @media(max-width:820px){
+    .hardware-copy,.repair-grid{grid-template-columns:1fr}
+    .hardware-hero img{height:260px}
+  }
+
   /* ---------- AI section ---------- */
   .ai-panel{
     background:linear-gradient(135deg,var(--panel) 0%,#1B2C49 100%);
@@ -263,6 +294,91 @@
           <span class="status">Always in progress</span>
         </article>
 
+        <article class="card" data-card-url="#hardware-maintenance" role="link" tabindex="0">
+          <h3>Hardware Maintenance &amp; Mac Repair</h3>
+          <div class="card-shots">
+            <a href="#hardware-maintenance" aria-label="iMac repair workbench"><img loading="lazy" src="assets/hardware-maintenance/imac-workbench.jpg" alt="Opened iMacs and MacBooks on a hardware repair workbench"></a>
+            <a href="#hardware-maintenance" aria-label="CMIzapper board soldered to MacBook logic board"><img loading="lazy" src="assets/hardware-maintenance/cmizapper-board.jpg" alt="Close-up of a CMIzapper Tiresias board soldered to a motherboard"></a>
+            <a href="#hardware-maintenance" aria-label="MacBook internals after upgrade"><img loading="lazy" src="assets/hardware-maintenance/macbook-upgrade.jpg" alt="MacBook internals with SSD and memory modules visible"></a>
+          </div>
+          <div class="tags">
+            <span class="tag">Mac repair</span><span class="tag">Micro-soldering</span>
+            <span class="tag">GPU faults</span><span class="tag">Retrofit upgrades</span>
+          </div>
+          <p>Hands-on hardware maintenance from older iMac GPU replacement to MacBook Pro graphics
+             fault recovery, SSD and RAM upgrades, operating system rebuilds, diagnostics and careful
+             board-level repair work.</p>
+          <a class="go" href="#hardware-maintenance">View repair work &rarr;</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="hardware-maintenance">
+    <div class="wrap">
+      <p class="sec-label">Hardware Maintenance</p>
+      <h2>Keeping older machines useful through diagnosis, repair and upgrades</h2>
+
+      <div class="hardware-hero">
+        <img loading="lazy" src="assets/hardware-maintenance/imac-workbench.jpg" alt="Two opened iMacs on a repair desk with tools, parts and an active iMac workstation">
+        <div class="hardware-copy">
+          <p>I have repaired, rebuilt and upgraded computers for many years because I genuinely enjoy
+             understanding how machines fail and how to bring them back to life. My work includes older
+             Apple hardware, Linux installs, storage upgrades, internal cleaning, diagnostics and board-level
+             repair experiments.</p>
+          <ul class="hardware-list">
+            <li><strong>2012 27-inch iMac GPU replacement</strong> using a custom-firmware Nvidia card with Metal support.</li>
+            <li><strong>MacBook Pro GPU fault recovery</strong> by disabling defective discrete graphics and using the stable graphics path.</li>
+            <li><strong>Micro-soldering work</strong> including a custom CMIzapper Tiresias board fitted to a logic board.</li>
+            <li><strong>Retrofit workflows</strong> to run newer macOS versions on older, still-capable Macs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="repair-grid">
+        <article class="repair-card">
+          <img loading="lazy" src="assets/hardware-maintenance/imac-internals.jpg" alt="Inside of a 27-inch iMac with its display removed for repair">
+          <div>
+            <h3>iMac GPU replacement</h3>
+            <p>Replaced a defective 2012 27-inch iMac video card and upgraded the machine with a Metal-capable custom firmware Nvidia GPU.</p>
+          </div>
+        </article>
+        <article class="repair-card">
+          <img loading="lazy" src="assets/hardware-maintenance/cmizapper-board.jpg" alt="Close-up of a CMIzapper Tiresias board installed on a MacBook Pro motherboard">
+          <div>
+            <h3>MacBook Pro graphics repair</h3>
+            <p>Recovered older MacBook Pros affected by defective video cards using software methods and micro-soldered board-level fixes.</p>
+          </div>
+        </article>
+        <article class="repair-card">
+          <img loading="lazy" src="assets/hardware-maintenance/macbook-upgrade.jpg" alt="Opened MacBook Pro showing fans, memory, battery and SSD upgrade">
+          <div>
+            <h3>Internal service and upgrades</h3>
+            <p>Performed SSD, RAM and internal maintenance work to make older machines faster, cleaner and more reliable for daily use.</p>
+          </div>
+        </article>
+        <article class="repair-card">
+          <img loading="lazy" src="assets/hardware-maintenance/workstation-setup.jpg" alt="Desk setup with iMacs, external storage and a ThinkPad during testing">
+          <div>
+            <h3>Testing and rebuilds</h3>
+            <p>Validated repaired systems with boot tests, OS installs, external drives and workstation checks before returning them to use.</p>
+          </div>
+        </article>
+        <article class="repair-card">
+          <img loading="lazy" src="assets/hardware-maintenance/kali-install.jpg" alt="Kali Linux installer running on a Lenovo ThinkPad">
+          <div>
+            <h3>Linux and OS installs</h3>
+            <p>Installed and tested operating systems, including Kali Linux, as part of broader learning, rebuild and hardware validation work.</p>
+          </div>
+        </article>
+        <article class="repair-card">
+          <img loading="lazy" src="assets/hardware-maintenance/macbook-collection.jpg" alt="Four silver Apple laptops arranged on a desk">
+          <div>
+            <h3>Long-term practice</h3>
+            <p>Studied, built and repaired several computers and Macs over time, using each repair to improve practical troubleshooting skill.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
