@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roberto Pires Almeida — Developer Portfolio</title>
+<meta name="description" content="Roberto Pires Almeida — BSc Computer Science student, iOS app developer and AI enthusiast in Cambridge, UK. Live demos of my projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#0E1726;
+    --panel:#16233A;
+    --panel-edge:#243654;
+    --ink:#EAF1FB;
+    --muted:#93A5C0;
+    --corn:#FFC53D;
+    --corn-deep:#E0A415;
+    --sky:#7FB8E6;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--night);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--sky)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--corn);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:10;
+    background:rgba(14,23,38,.85);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--panel-edge);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;letter-spacing:.02em}
+  .brand span{color:var(--corn)}
+  nav ul{display:flex;gap:22px;list-style:none}
+  nav a{color:var(--muted);text-decoration:none;font-size:.92rem;font-weight:500}
+  nav a:hover{color:var(--corn)}
+  @media(max-width:640px){nav ul{gap:14px}nav a{font-size:.82rem}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:88px 0 72px}
+  .sun{
+    position:absolute;width:520px;height:520px;border-radius:50%;
+    right:-140px;top:-160px;pointer-events:none;
+    background:radial-gradient(circle,rgba(255,197,61,.28) 0%,rgba(255,197,61,.10) 42%,transparent 70%);
+    animation:breathe 7s ease-in-out infinite;
+  }
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+  @media(prefers-reduced-motion:reduce){.sun{animation:none}}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--corn);
+    letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px;
+  }
+  h1{
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;
+    font-size:clamp(2.1rem,5.4vw,3.4rem);line-height:1.12;letter-spacing:-.015em;
+    max-width:15ch;
+  }
+  h1 em{font-style:normal;color:var(--corn)}
+  .hero p{max-width:56ch;color:var(--muted);margin-top:22px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:"IBM Plex Mono",monospace;font-size:.9rem;font-weight:500;
+    padding:12px 20px;border-radius:10px;text-decoration:none;
+    border:1px solid var(--panel-edge);color:var(--ink);background:var(--panel);
+    transition:transform .15s ease,border-color .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);border-color:var(--corn)}
+  .btn.primary{background:var(--corn);border-color:var(--corn);color:#1A1405;font-weight:600}
+  .btn.primary:hover{background:var(--corn-deep);border-color:var(--corn-deep)}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0}
+  .sec-label{
+    font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--corn);margin-bottom:10px;
+  }
+  h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.7rem;margin-bottom:28px}
+
+  /* ---------- projects ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+  .card{
+    background:var(--panel);border:1px solid var(--panel-edge);border-radius:var(--radius);
+    padding:26px 24px;display:flex;flex-direction:column;gap:14px;
+    transition:border-color .15s ease,transform .15s ease;
+  }
+  .card:hover{border-color:var(--corn);transform:translateY(-3px)}
+  .card h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.2rem}
+  .tags{display:flex;flex-wrap:wrap;gap:7px}
+  .tag{
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--sky);
+    border:1px solid var(--panel-edge);border-radius:999px;padding:3px 10px;
+  }
+  .card p{color:var(--muted);font-size:.95rem;flex:1}
+  .card .go{
+    font-family:"IBM Plex Mono",monospace;font-size:.88rem;font-weight:500;
+    color:var(--corn);text-decoration:none;
+  }
+  .card .go:hover{text-decoration:underline}
+  .card .status{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--muted)}
+
+  /* ---------- AI section ---------- */
+  .ai-panel{
+    background:linear-gradient(135deg,var(--panel) 0%,#1B2C49 100%);
+    border:1px solid var(--panel-edge);border-radius:var(--radius);padding:32px 30px;
+  }
+  .ai-panel ul{list-style:none;display:grid;gap:14px;margin-top:8px}
+  .ai-panel li{padding-left:26px;position:relative;color:var(--muted)}
+  .ai-panel li::before{content:"\25B8";position:absolute;left:0;color:var(--corn)}
+  .ai-panel li strong{color:var(--ink);font-weight:600}
+
+  /* ---------- skills ---------- */
+  .skill-group{margin-bottom:22px}
+  .skill-group h3{
+    font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.07em;color:var(--sky);margin-bottom:10px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    font-size:.86rem;background:var(--panel);border:1px solid var(--panel-edge);
+    border-radius:8px;padding:6px 13px;color:var(--ink);
+  }
+
+  /* ---------- education ---------- */
+  .edu{display:grid;gap:16px}
+  .edu-item{
+    display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    border-bottom:1px solid var(--panel-edge);padding-bottom:16px;
+  }
+  .edu-item h3{font-size:1.02rem;font-weight:600}
+  .edu-item p{color:var(--muted);font-size:.92rem;max-width:60ch}
+  .edu-item .when{font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--corn);white-space:nowrap}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--panel-edge);padding:56px 0 64px;text-align:center}
+  footer h2{margin-bottom:14px}
+  footer p{color:var(--muted);max-width:48ch;margin:0 auto 28px}
+  .foot-note{margin-top:44px;font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">roberto<span>.</span>pires<span>.</span>almeida</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#ai">AI</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Cambridge, UK · BSc Computer Science · University of London</p>
+      <h1>I build things you can <em>actually try</em>.</h1>
+      <p>I'm Rob — a computer science student, independent iOS developer and AI enthusiast.
+         By day I solve complex problems for people in crisis at Cambridge City Council;
+         by night I write code. Everything below runs live in your browser — go ahead and play.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://synckser.github.io/game-final/">&#9654;&nbsp;Play my game</a>
+        <a class="btn" href="https://synckser.github.io/data-vis/">Explore my charts</a>
+        <a class="btn" href="https://github.com/synckser">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="wrap">
+      <p class="sec-label">Projects</p>
+      <h2>Built step by step, from variables to shipped apps</h2>
+      <div class="grid">
+
+        <article class="card">
+          <h3>2D Platform Game</h3>
+          <div class="tags">
+            <span class="tag">JavaScript</span><span class="tag">p5.js</span>
+            <span class="tag">Game physics</span><span class="tag">University project</span>
+          </div>
+          <p>A complete platformer with gravity and jump physics, flying with animated wing flaps,
+             enemy patrol AI, collision detection, a boss chase, moving platforms, an animated sun
+             that follows the player, sound effects, music, scoring, lives and restart logic.
+             Built with factory-style object creation to keep the code clean.</p>
+          <a class="go" href="https://synckser.github.io/game-final/">Launch the game &rarr;</a>
+        </article>
+
+        <article class="card">
+          <h3>Interactive Data Visualisations</h3>
+          <div class="tags">
+            <span class="tag">JavaScript</span><span class="tag">p5.js</span>
+            <span class="tag">Data</span><span class="tag">University project</span>
+          </div>
+          <p>Seven interactive charts — three designed from scratch — including an animated pie chart
+             of ONS population data, a waffle chart of my own Google Forms survey about VPNs, and a
+             staggered bar chart with easing. Hover tooltips, sound feedback, play/pause animation
+             controls, and real datasets throughout.</p>
+          <a class="go" href="https://synckser.github.io/data-vis/">Explore the charts &rarr;</a>
+        </article>
+
+        <article class="card">
+          <h3>Draw &amp; Learn — iOS app</h3>
+          <div class="tags">
+            <span class="tag">Swift</span><span class="tag">iOS</span>
+            <span class="tag">AI APIs</span><span class="tag">Independent</span>
+          </div>
+          <p>A children's educational drawing and learning app I design and build independently.
+             AI-generated speech and sounds for the app's mascot via the Gemini and ElevenLabs APIs,
+             Python pipelines for asset and screenshot automation, and App Store metadata localised
+             into multiple languages.</p>
+          <span class="status">Going through App Store submission</span>
+        </article>
+
+        <article class="card">
+          <h3>AI Tooling &amp; Automation</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">macOS</span>
+            <span class="tag">AI agents</span><span class="tag">Ongoing</span>
+          </div>
+          <p>AI coding agents are a core part of how I work — planning, generating, reviewing and
+             testing code. I build small macOS utilities that automate document-processing workflows
+             and constantly evaluate new models, APIs and local AI setups.</p>
+          <span class="status">Always in progress</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap">
+      <p class="sec-label">How I work with AI</p>
+      <h2>Harnessing AI, not just using it</h2>
+      <div class="ai-panel">
+        <ul>
+          <li><strong>Build with it</strong> — AI pair-programming and coding agents are part of my daily workflow, from planning features to reviewing and testing code.</li>
+          <li><strong>Ship it inside products</strong> — I integrate AI APIs (Anthropic Claude, Google Gemini, ElevenLabs) directly into my own apps for speech, sound and content generation.</li>
+          <li><strong>Automate with it</strong> — Python pipelines and macOS utilities that turn repetitive work into one command.</li>
+          <li><strong>Study it formally</strong> — working towards the Machine Learning &amp; AI specialism of my BSc, with modules in machine learning, neural networks, NLP and intelligent signal processing ahead.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <p class="sec-label">Skills</p>
+      <h2>Technical toolkit</h2>
+      <div class="skill-group">
+        <h3>Programming</h3>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">JavaScript / p5.js</span>
+          <span class="chip">Swift (iOS)</span><span class="chip">SQL</span>
+          <span class="chip">Git &amp; GitHub</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Systems &amp; Networking</h3>
+        <div class="chips">
+          <span class="chip">Linux command line</span><span class="chip">Windows &amp; macOS</span>
+          <span class="chip">TCP/IP fundamentals</span><span class="chip">Hardware diagnostics</span>
+          <span class="chip">System administration</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Cybersecurity</h3>
+        <div class="chips">
+          <span class="chip">SIEM tools</span><span class="chip">Intrusion Detection Systems</span>
+          <span class="chip">Risk &amp; vulnerability assessment</span><span class="chip">Incident response</span>
+          <span class="chip">Security automation (Python)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>AI &amp; Tools</h3>
+        <div class="chips">
+          <span class="chip">AI coding agents</span><span class="chip">Prompt engineering</span>
+          <span class="chip">Claude / Gemini / ElevenLabs APIs</span><span class="chip">Local AI models</span>
+          <span class="chip">Xcode &amp; VS Code</span><span class="chip">REST APIs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <p class="sec-label">Education</p>
+      <h2>Formal study &amp; certifications</h2>
+      <div class="edu">
+        <div class="edu-item">
+          <div>
+            <h3>BSc Computer Science — University of London (Goldsmiths)</h3>
+            <p>Part-time by distance learning. Completed: Computational Mathematics, Introduction to
+               Programming I &amp; II, How Computers Work. Planned specialism: Machine Learning &amp; AI.</p>
+          </div>
+          <span class="when">2024 – present</span>
+        </div>
+        <div class="edu-item">
+          <div>
+            <h3>Google Cybersecurity Professional Certificate</h3>
+            <p>Nine courses: security foundations, networks, Linux &amp; SQL, threats and vulnerabilities,
+               detection &amp; response, and automating security tasks with Python.</p>
+          </div>
+          <span class="when">June 2026</span>
+        </div>
+        <div class="edu-item">
+          <div>
+            <h3>Google IT Support Professional Certificate</h3>
+            <p>Six courses: technical support fundamentals, computer networking, operating systems,
+               system administration &amp; IT infrastructure, and IT security.</p>
+          </div>
+          <span class="when">June 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I'm looking for IT roles — support, applications, or junior development — in or around Cambridge, UK.
+       If you'd like to chat, drop me a line.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn primary" href="mailto:bob.pires@hotmail.co.uk">Email me</a>
+      <a class="btn" href="https://github.com/synckser">github.com/synckser</a>
+    </div>
+    <p class="foot-note">Designed &amp; built by Roberto Pires Almeida · Cambridge, UK</p>
+  </div>
+</footer>
+
+</body>
+</html>
