@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Draw &amp; Learn — iOS app · Roberto Pires Almeida</title>
 <meta name="description" content="Draw & Learn — a children's educational drawing and tracing app for iOS. Built with SwiftUI, PencilKit and StoreKit 2, featuring a custom flood-fill colouring engine, an animated mascot and 18-language text-to-speech.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Draw &amp; Learn — iOS app case study">
+<meta property="og:description" content="A children's drawing and learning app for iOS: custom flood-fill engine, animated mascot, 18 languages, built end to end by Roberto Pires Almeida.">
+<meta property="og:url" content="https://synckser.github.io/roberto-portfolio/draw-and-learn/">
+<meta property="og:image" content="https://synckser.github.io/roberto-portfolio/draw-and-learn/assets/screenshots/home.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,6 +148,14 @@
 
   <section>
     <div class="wrap">
+      <p class="sec-label">Why I built it</p>
+      <h2>The problem</h2>
+      <p class="sec-lead">Most children's drawing apps are either ad-filled colouring books or blank canvases —
+         and almost all of them are English-only. I wanted a single app where a child can trace a shape,
+         colour it in, and hear the word spoken in their own language, with no ads, no data collection
+         and nothing to get lost in. Nothing on the App Store combined guided tracing, structured
+         vocabulary learning and true multilingual support in one safe place, so I built it —
+         end to end, as a solo developer alongside my degree.</p>
       <div class="stats">
         <div class="stat"><b>505</b><span>illustrated items</span></div>
         <div class="stat"><b>29</b><span>categories</span></div>
@@ -180,9 +194,9 @@
       </div>
       <div class="shots" id="shots" style="margin-top:40px">
         <figure class="shot"><img loading="lazy" src="assets/screenshots/home.jpg" alt="Home screen with category grid and Bob the mascot"><figcaption>Home &amp; daily challenge</figcaption></figure>
-        <figure class="shot"><img loading="lazy" src="assets/screenshots/languages.jpg" alt="Language picker showing 18 languages"><figcaption>18 languages</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/languages.jpg" alt="Language picker showing 18 languages"><figcaption>18 languages — kids learn in their own language</figcaption></figure>
         <figure class="shot"><img loading="lazy" src="assets/screenshots/gallery.jpg" alt="Animals category with items to draw"><figcaption>Pick what to draw</figcaption></figure>
-        <figure class="shot"><img loading="lazy" src="assets/screenshots/drawing.jpg" alt="Guided tracing screen with drawing tools"><figcaption>Trace &amp; draw</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/drawing.jpg" alt="Guided tracing screen with drawing tools"><figcaption>Guided tracing, adjustable difficulty</figcaption></figure>
         <figure class="shot"><img loading="lazy" src="assets/screenshots/coloring.jpg" alt="A finished, colourfully traced dog"><figcaption>Finished artwork</figcaption></figure>
       </div>
     </div>
@@ -200,6 +214,20 @@
         <article class="card"><h3>Localisation system</h3><p>A JSON language-pack loader delivers translations and phonics for 18 languages, with inline bundled fallbacks so the app is never left without content.</p></article>
         <article class="card"><h3>StoreKit 2 subscriptions</h3><p>A transaction listener drives entitlement state, with restore support and a parental gate — built on Apple's current StoreKit 2 APIs.</p></article>
         <article class="card"><h3>Child-safe by design</h3><p>No force-unwraps on any path a child can reach, 44pt+ tap targets, graceful fallbacks for missing data, and Reduce Motion support that swaps every animation for a static alternative.</p></article>
+        <article class="card"><h3>AI asset pipeline</h3><p>The mascot's voice lines and sound effects are generated with the ElevenLabs and Gemini APIs, driven by Python pipelines that batch-produce, name and normalise audio for every language — turning 505 items &times; 18 languages of content into a repeatable one-command build instead of thousands of manual recordings.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="sec-label">Shipping</p>
+      <h2>What getting to the App Store taught me</h2>
+      <p class="sec-lead">Building the app was half the work — shipping it is its own engineering discipline.</p>
+      <div class="grid">
+        <article class="card"><h3>Kids Category rules</h3><p>Apps for children face Apple's strictest review path: a parental gate in front of any commerce, no third-party analytics or tracking, and privacy rules that shaped the architecture — everything runs on-device.</p></article>
+        <article class="card"><h3>Privacy nutrition labels</h3><p>Declaring exactly what the app collects (nothing) and proving it — auditing every framework and API call so the App Store privacy label is accurate, not just optimistic.</p></article>
+        <article class="card"><h3>Release engineering</h3><p>Build settings, platform targets, provisioning and localised App Store metadata across multiple languages — the unglamorous details that decide whether a submission is accepted or bounced.</p></article>
       </div>
     </div>
   </section>
