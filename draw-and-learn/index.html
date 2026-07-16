@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Draw &amp; Learn — iOS app · Roberto Pires Almeida</title>
-<meta name="description" content="Draw & Learn — a children's educational drawing and tracing app for iOS. Built with SwiftUI, PencilKit and StoreKit 2, featuring a custom flood-fill colouring engine, an animated mascot and 18-language text-to-speech.">
+<title>Draw &amp; Learn: iOS app · Roberto Pires Almeida</title>
+<meta name="description" content="Draw & Learn is a children's educational drawing and tracing app for iOS. Built with SwiftUI, PencilKit and StoreKit 2, featuring a custom flood-fill colouring engine, an animated mascot and 18-language text-to-speech.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Draw &amp; Learn — iOS app case study">
+<meta property="og:title" content="Draw &amp; Learn: iOS app case study">
 <meta property="og:description" content="A children's drawing and learning app for iOS: custom flood-fill engine, animated mascot, 18 languages, built end to end by Roberto Pires Almeida.">
 <meta property="og:url" content="https://synckser.github.io/roberto-portfolio/draw-and-learn/">
 <meta property="og:image" content="https://synckser.github.io/roberto-portfolio/draw-and-learn/assets/screenshots/home.jpg">
@@ -133,9 +133,9 @@
       <img class="app-icon" src="assets/icon.png" alt="Draw & Learn app icon">
       <div>
         <p class="eyebrow">iOS · SwiftUI · Independent project</p>
-        <h1>Draw &amp; Learn — a drawing app kids <em>actually learn</em> from.</h1>
+        <h1>Draw &amp; Learn: a drawing app kids <em>actually learn</em> from.</h1>
         <p class="lede">A native iOS app where children trace, colour and learn words in their own language,
-           guided by an animated mascot. I design and build it end to end — from the drawing engine to
+           guided by an animated mascot. I design and build it end to end, from the drawing engine to
            the App Store submission.</p>
         <div class="tags">
           <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">PencilKit</span>
@@ -150,11 +150,11 @@
     <div class="wrap">
       <p class="sec-label">Why I built it</p>
       <h2>The problem</h2>
-      <p class="sec-lead">Most children's drawing apps are either ad-filled colouring books or blank canvases —
+      <p class="sec-lead">Most children's drawing apps are either ad-filled colouring books or blank canvases,
          and almost all of them are English-only. I wanted a single app where a child can trace a shape,
          colour it in, and hear the word spoken in their own language, with no ads, no data collection
          and nothing to get lost in. Nothing on the App Store combined guided tracing, structured
-         vocabulary learning and true multilingual support in one safe place, so I built it —
+         vocabulary learning and true multilingual support in one safe place, so I built it myself,
          end to end, as a solo developer alongside my degree.</p>
       <div class="stats">
         <div class="stat"><b>505</b><span>illustrated items</span></div>
@@ -169,9 +169,9 @@
     <div class="wrap">
       <p class="sec-label">Features</p>
       <h2>What it does</h2>
-      <p class="sec-lead">A playful, safe learning environment — trace, colour, and hear every word spoken aloud.</p>
+      <p class="sec-lead">A playful, safe learning environment. Trace, colour, and hear every word spoken aloud.</p>
       <div class="grid">
-        <article class="card"><div class="ico">🎨</div><h3>Smart guided colouring</h3><p>Tap to fill any region with a custom flood-fill engine that respects outlines perfectly — no bleeding across lines, and an instant response.</p></article>
+        <article class="card"><div class="ico">🎨</div><h3>Smart guided colouring</h3><p>Tap to fill any region with a custom flood-fill engine that respects outlines perfectly, with no bleeding across lines and an instant response.</p></article>
         <article class="card"><div class="ico">✏️</div><h3>Trace &amp; free-draw</h3><p>Guided tracing with adjustable difficulty, plus a blank PencilKit canvas for free creativity, with full undo / redo history.</p></article>
         <article class="card"><div class="ico">🐵</div><h3>Bob, the mascot</h3><p>An animated companion with emotion states and interactive taps who flies in to guide, celebrate and encourage.</p></article>
         <article class="card"><div class="ico">🗣️</div><h3>18-language pronunciation</h3><p>Every word spoken aloud through on-device text-to-speech, with dedicated phonics packs for early readers.</p></article>
@@ -194,7 +194,7 @@
       </div>
       <div class="shots" id="shots" style="margin-top:40px">
         <figure class="shot"><img loading="lazy" src="assets/screenshots/home.jpg" alt="Home screen with category grid and Bob the mascot"><figcaption>Home &amp; daily challenge</figcaption></figure>
-        <figure class="shot"><img loading="lazy" src="assets/screenshots/languages.jpg" alt="Language picker showing 18 languages"><figcaption>18 languages — kids learn in their own language</figcaption></figure>
+        <figure class="shot"><img loading="lazy" src="assets/screenshots/languages.jpg" alt="Language picker showing 18 languages"><figcaption>18 languages, so kids learn in their own language</figcaption></figure>
         <figure class="shot"><img loading="lazy" src="assets/screenshots/gallery.jpg" alt="Animals category with items to draw"><figcaption>Pick what to draw</figcaption></figure>
         <figure class="shot"><img loading="lazy" src="assets/screenshots/drawing.jpg" alt="Guided tracing screen with drawing tools"><figcaption>Guided tracing, adjustable difficulty</figcaption></figure>
         <figure class="shot"><img loading="lazy" src="assets/screenshots/coloring.jpg" alt="A finished, colourfully traced dog"><figcaption>Finished artwork</figcaption></figure>
@@ -206,15 +206,15 @@
     <div class="wrap">
       <p class="sec-label">Engineering</p>
       <h2>Under the hood</h2>
-      <p class="sec-lead">The parts I'm most proud of — where the interesting engineering lives.</p>
+      <p class="sec-lead">The parts I'm most proud of, where the interesting engineering lives.</p>
       <div class="grid">
-        <article class="card"><h3>Custom flood-fill engine</h3><p>Bucket colouring is a hand-written Core Graphics algorithm: an 8-directional ray-cast picks the correct seed pixel even when a child taps on an outline, RGB-sum barriers stop fills at lines, and offline-generated per-guide region maps give pixel-perfect containment with instant response — no async, no spinners.</p></article>
+        <article class="card"><h3>Custom flood-fill engine</h3><p>Bucket colouring is a hand-written Core Graphics algorithm: an 8-directional ray-cast picks the correct seed pixel even when a child taps on an outline, RGB-sum barriers stop fills at lines, and offline-generated per-guide region maps give pixel-perfect containment with instant response, with no async and no spinners.</p></article>
         <article class="card"><h3>MVVM + manager singletons</h3><p>SwiftUI views back onto focused view models, with 11 <code>ObservableObject</code> managers each owning one concern: sound, speech, localisation, difficulty, progress, subscriptions, replay and more.</p></article>
-        <article class="card"><h3>Modern concurrency</h3><p>Strictly async / await — no Combine. Audio runs on a <code>nonisolated static</code> pipeline off the main thread, while <code>@Published</code> state is mutated on the MainActor to keep the canvas glassy-smooth.</p></article>
+        <article class="card"><h3>Modern concurrency</h3><p>Strictly async / await, with no Combine. Audio runs on a <code>nonisolated static</code> pipeline off the main thread, while <code>@Published</code> state is mutated on the MainActor to keep the canvas glassy-smooth.</p></article>
         <article class="card"><h3>Localisation system</h3><p>A JSON language-pack loader delivers translations and phonics for 18 languages, with inline bundled fallbacks so the app is never left without content.</p></article>
-        <article class="card"><h3>StoreKit 2 subscriptions</h3><p>A transaction listener drives entitlement state, with restore support and a parental gate — built on Apple's current StoreKit 2 APIs.</p></article>
+        <article class="card"><h3>StoreKit 2 subscriptions</h3><p>A transaction listener drives entitlement state, with restore support and a parental gate, built on Apple's current StoreKit 2 APIs.</p></article>
         <article class="card"><h3>Child-safe by design</h3><p>No force-unwraps on any path a child can reach, 44pt+ tap targets, graceful fallbacks for missing data, and Reduce Motion support that swaps every animation for a static alternative.</p></article>
-        <article class="card"><h3>AI asset pipeline</h3><p>The mascot's voice lines and sound effects are generated with the ElevenLabs and Gemini APIs, driven by Python pipelines that batch-produce, name and normalise audio for every language — turning 505 items &times; 18 languages of content into a repeatable one-command build instead of thousands of manual recordings.</p></article>
+        <article class="card"><h3>AI asset pipeline</h3><p>The mascot's voice lines and sound effects are generated with the ElevenLabs and Gemini APIs, driven by Python pipelines that batch-produce, name and normalise audio for every language, turning 505 items &times; 18 languages of content into a repeatable one-command build instead of thousands of manual recordings.</p></article>
       </div>
     </div>
   </section>
@@ -223,11 +223,11 @@
     <div class="wrap">
       <p class="sec-label">Shipping</p>
       <h2>What getting to the App Store taught me</h2>
-      <p class="sec-lead">Building the app was half the work — shipping it is its own engineering discipline.</p>
+      <p class="sec-lead">Building the app was half the work. Shipping it is its own engineering discipline.</p>
       <div class="grid">
-        <article class="card"><h3>Kids Category rules</h3><p>Apps for children face Apple's strictest review path: a parental gate in front of any commerce, no third-party analytics or tracking, and privacy rules that shaped the architecture — everything runs on-device.</p></article>
-        <article class="card"><h3>Privacy nutrition labels</h3><p>Declaring exactly what the app collects (nothing) and proving it — auditing every framework and API call so the App Store privacy label is accurate, not just optimistic.</p></article>
-        <article class="card"><h3>Release engineering</h3><p>Build settings, platform targets, provisioning and localised App Store metadata across multiple languages — the unglamorous details that decide whether a submission is accepted or bounced.</p></article>
+        <article class="card"><h3>Kids Category rules</h3><p>Apps for children face Apple's strictest review path: a parental gate in front of any commerce, no third-party analytics or tracking, and privacy rules that shaped the architecture, so everything runs on-device.</p></article>
+        <article class="card"><h3>Privacy nutrition labels</h3><p>Declaring exactly what the app collects (nothing) and proving it, by auditing every framework and API call so the App Store privacy label is genuinely accurate.</p></article>
+        <article class="card"><h3>Release engineering</h3><p>Build settings, platform targets, provisioning and localised App Store metadata across multiple languages: the unglamorous details that decide whether a submission is accepted or bounced.</p></article>
       </div>
     </div>
   </section>
@@ -253,7 +253,7 @@
 
 <footer>
   <div class="wrap">
-    <p>Draw &amp; Learn — a personal iOS project by Roberto Pires Almeida.</p>
+    <p>Draw &amp; Learn is a personal iOS project by Roberto Pires Almeida.</p>
     <p class="foot-note">The source code is private; this page is a portfolio showcase. &nbsp;·&nbsp; <a href="../index.html#projects">Back to portfolio</a></p>
   </div>
 </footer>
