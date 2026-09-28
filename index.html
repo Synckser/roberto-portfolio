@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roberto Pires Almeida | Developer Portfolio</title>
-<meta name="description" content="Roberto Pires Almeida. BSc Computer Science student, iOS app developer and AI enthusiast in Cambridge, UK. Live demos of my projects.">
+<meta name="description" content="Roberto Pires Almeida. BSc Computer Science student and iOS developer in Cambridge, UK. My app Draw &amp; Learn is live on the App Store: download it and try it.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Roberto Pires Almeida | Developer Portfolio">
-<meta property="og:description" content="BSc Computer Science student, independent iOS developer and AI enthusiast in Cambridge, UK. Live demos you can actually try.">
+<meta property="og:description" content="iOS developer with an app live on the App Store (Draw &amp; Learn), BSc Computer Science student in Cambridge, UK. Live demos you can actually try.">
 <meta property="og:url" content="https://synckser.github.io/roberto-portfolio/">
 <meta property="og:image" content="https://synckser.github.io/roberto-portfolio/assets/profile/roberto-headshot.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -111,6 +111,54 @@
     text-transform:uppercase;color:var(--corn);margin-bottom:10px;
   }
   h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.7rem;margin-bottom:28px}
+
+  /* ---------- featured app ---------- */
+  #app{padding-top:24px}
+  .app-feature{
+    background:linear-gradient(145deg,var(--panel) 0%,#1B2C49 100%);
+    border:1px solid var(--corn);border-radius:var(--radius);padding:34px 32px;
+    box-shadow:0 24px 70px rgba(0,0,0,.3);
+  }
+  .app-head{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+  .app-head img.app-icon{width:92px;height:92px;border-radius:22%;box-shadow:0 10px 30px rgba(0,0,0,.4);flex:none}
+  .app-head h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.5rem,3.6vw,2rem);line-height:1.15}
+  .app-meta{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--muted);margin-top:6px}
+  .live-pill{
+    display:inline-flex;align-items:center;gap:7px;font-family:"IBM Plex Mono",monospace;font-size:.75rem;
+    color:#1A1405;background:var(--corn);border-radius:999px;padding:3px 11px;font-weight:600;margin-bottom:8px;
+  }
+  .live-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:#1F8A3B}
+  .app-pitch{color:var(--muted);margin:22px 0 0;max-width:68ch}
+  .app-pitch strong{color:var(--ink)}
+  .store-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:24px}
+  .store-badge{display:inline-block;line-height:0;transition:transform .15s ease}
+  .store-badge:hover{transform:translateY(-2px)}
+  .store-badge img{height:54px;width:auto}
+  .app-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+  .app-stat{background:rgba(14,23,38,.55);border:1px solid var(--panel-edge);border-radius:12px;padding:16px 10px;text-align:center}
+  .app-stat b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.6rem;font-weight:800;color:var(--corn)}
+  .app-stat span{font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--muted)}
+  .sub-h{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.25rem;margin:40px 0 16px}
+  .video-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .video-row figure{margin:0}
+  .video-row video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:18px;border:1px solid var(--panel-edge);background:#000;display:block}
+  .video-row figcaption,.shot-row figcaption{margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--muted);text-align:center}
+  .shot-row{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+  .shot-row figure{margin:0;flex:0 0 190px;scroll-snap-align:start}
+  .shot-row img{width:100%;border-radius:14px;border:1px solid var(--panel-edge);display:block}
+  .lessons{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+  .lesson{background:rgba(14,23,38,.55);border:1px solid var(--panel-edge);border-radius:12px;padding:20px}
+  .lesson h4{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:10px}
+  .lesson p{color:var(--muted);font-size:.93rem;margin-top:6px}
+  .lesson p b{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--sky);margin-right:6px}
+  .lesson p b.fix{color:var(--corn)}
+  .skills-built{display:flex;flex-wrap:wrap;gap:8px}
+  @media(max-width:820px){.video-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:560px){.app-feature{padding:24px 18px}.app-stats{grid-template-columns:repeat(2,1fr)}}
+  .app-intro{color:var(--muted);max-width:70ch;margin:-12px 0 26px;font-size:1.05rem}
+  .social-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+  .social-row .btn{font-size:.84rem;padding:10px 16px}
+  .lesson code{font-family:"IBM Plex Mono",monospace;font-size:.82em;background:rgba(0,0,0,.3);color:#FFE0B5;padding:1px 5px;border-radius:5px}
 
   /* ---------- about ---------- */
   .about-panel{
@@ -235,6 +283,7 @@
   <div class="wrap nav">
     <nav aria-label="Main">
       <ul>
+        <li><a href="#app">My App</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#ai">AI</a></li>
@@ -253,11 +302,13 @@
       <div>
         <p class="eyebrow">Cambridge, UK · BSc Computer Science · Goldsmiths, University of London</p>
         <h1>I build things you can <em>actually try</em>.</h1>
-        <p>I'm Roberto, a computer science student, independent iOS developer and AI enthusiast.
-           I combine public-sector problem solving with hands-on technical work across software,
-           automation, IT support and hardware maintenance.</p>
+        <p>I'm Roberto, a computer science student and independent iOS developer. I designed, built and
+           shipped <strong style="color:var(--ink)">Draw &amp; Learn</strong>, a children's app that is
+           <strong style="color:var(--corn)">live on the App Store</strong> right now, free to download and test.
+           I combine that with public-sector problem solving, IT support and hardware maintenance.</p>
         <div class="cta-row">
-          <a class="btn primary" href="#projects">View my work</a>
+          <a class="btn primary" href="#app">See my App Store app</a>
+          <a class="btn" href="#projects">View my work</a>
           <a class="btn" href="assets/cv/Roberto-Pires-Almeida-CV.pdf" download>Download CV</a>
           <a class="btn" href="https://www.linkedin.com/in/roberto-pires-03986415a/">LinkedIn</a>
           <a class="btn" href="https://github.com/synckser">GitHub</a>
@@ -274,21 +325,120 @@
     </div>
   </div>
 
-  <section id="about">
+  <section id="app">
     <div class="wrap">
-      <p class="sec-label">Professional Profile</p>
-      <h2>Reliable, technical and comfortable solving real problems</h2>
-      <div class="about-panel">
-        <img loading="lazy" src="assets/profile/roberto-office.png" alt="Roberto Pires Almeida standing in a professional office setting">
-        <div class="about-copy">
-          <p>I am looking for IT support, application support, junior development or technical operations roles in and around Cambridge. My background combines customer-facing public-sector work, formal computer science study and independent project delivery.</p>
-          <p>Employers get someone who can communicate clearly with people, learn technical systems quickly, and keep working through problems until there is a practical result.</p>
-          <ul class="career-points">
-            <li><strong>Current study:</strong> BSc Computer Science with planned Machine Learning &amp; AI specialism, with an 83% average across completed modules (first-class level).</li>
-            <li><strong>Practical projects:</strong> iOS app development, JavaScript games, data visualisation, AI APIs and automation.</li>
-            <li><strong>IT foundations:</strong> Google IT Support and Cybersecurity certificates, Linux, networking, diagnostics and system administration basics.</li>
-            <li><strong>Hands-on mindset:</strong> years of computer maintenance, Mac repair, upgrades and troubleshooting.</li>
-          </ul>
+      <p class="sec-label">Project 01 · My flagship, end-to-end project</p>
+      <h2>I shipped a real iOS app. You can download it today.</h2>
+      <p class="app-intro">Draw &amp; Learn is my most complete piece of work: I took it from an idea to a product real families download, covering design, code, testing, App Store review, release, marketing and support. Everything below is live and public, so you can check it yourself.</p>
+      <div class="app-feature">
+        <div class="app-head">
+          <img class="app-icon" src="draw-and-learn/assets/icon.png" alt="Draw & Learn app icon">
+          <div>
+            <span class="live-pill">Live on the App Store</span>
+            <h3>Draw &amp; Learn</h3>
+            <p class="app-meta">iPhone &amp; iPad · Education · Ages 5 and under · Free · No ads · Works offline</p>
+          </div>
+        </div>
+        <p class="app-pitch">A children's drawing app where kids trace, colour and learn first words, letters and
+           numbers while <strong>Bob, a talking robot buddy</strong>, says every word and letter sound out loud.
+           I designed, coded, tested, published and marketed it <strong>on my own, end to end</strong>: from the
+           Swift drawing engine to App Store review, release automation and advertising. It went live in
+           September 2026 and I keep shipping updates.</p>
+        <div class="store-row">
+          <a class="store-badge" href="https://apps.apple.com/app/id6777554616" aria-label="Download Draw & Learn on the App Store">
+            <img src="assets/app-store/badge.svg" alt="Download on the App Store">
+          </a>
+          <a class="btn" href="draw-and-learn/">Read the full case study &rarr;</a>
+        </div>
+        <div class="app-stats">
+          <div class="app-stat"><b>500+</b><span>pictures to colour</span></div>
+          <div class="app-stat"><b>18</b><span>spoken languages</span></div>
+          <div class="app-stat"><b>3</b><span>versions shipped</span></div>
+          <div class="app-stat"><b>1</b><span>developer: me</span></div>
+        </div>
+
+        <h3 class="sub-h">See it in action</h3>
+        <div class="video-row">
+          <figure>
+            <video controls muted playsinline preload="none" poster="draw-and-learn/assets/videos/meet-bob.jpg">
+              <source src="draw-and-learn/assets/videos/meet-bob.mp4" type="video/mp4">
+            </video>
+            <figcaption>Meet Bob, the talking robot</figcaption>
+          </figure>
+          <figure>
+            <video controls muted playsinline preload="none" poster="draw-and-learn/assets/videos/colour-with-bob.jpg">
+              <source src="draw-and-learn/assets/videos/colour-with-bob.mp4" type="video/mp4">
+            </video>
+            <figcaption>Colouring and first words</figcaption>
+          </figure>
+          <figure>
+            <video controls muted playsinline preload="none" poster="draw-and-learn/assets/videos/tracing.jpg">
+              <source src="draw-and-learn/assets/videos/tracing.mp4" type="video/mp4">
+            </video>
+            <figcaption>Guided tracing</figcaption>
+          </figure>
+          <figure>
+            <video controls muted playsinline preload="none" poster="draw-and-learn/assets/videos/pick-and-draw.jpg">
+              <source src="draw-and-learn/assets/videos/pick-and-draw.mp4" type="video/mp4">
+            </video>
+            <figcaption>Pick a picture, start drawing</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="sub-h">App Store screenshots</h3>
+        <div class="shot-row">
+          <figure><img loading="lazy" src="draw-and-learn/assets/store/shot-1.jpg" alt="Bob cheering after a child colours a dolphin"><figcaption>Bob cheers on every picture</figcaption></figure>
+          <figure><img loading="lazy" src="draw-and-learn/assets/store/shot-2.jpg" alt="Phonics letter buttons above a dinosaur drawing"><figcaption>Every letter sound</figcaption></figure>
+          <figure><img loading="lazy" src="draw-and-learn/assets/store/shot-3.jpg" alt="Home screen with category grid"><figcaption>500+ pictures</figcaption></figure>
+          <figure><img loading="lazy" src="draw-and-learn/assets/store/shot-4.jpg" alt="Ocean category picker"><figcaption>Easy, Medium or Hard</figcaption></figure>
+          <figure><img loading="lazy" src="draw-and-learn/assets/store/shot-5.jpg" alt="Letters category for ABC tracing"><figcaption>ABC and 123</figcaption></figure>
+        </div>
+
+
+        <h3 class="sub-h">Marketing it: the project's social media</h3>
+        <p class="app-pitch" style="margin-top:0">Shipping is only half the job, so I also run the app's marketing. I set up dedicated
+           accounts for the app, produce short video ads (screen recordings of the real app, captions and an AI
+           voice-over), post them across platforms aimed at parents, and run Apple Search Ads and Google Ads
+           campaigns on a small, capped budget. Follow the project here:</p>
+        <div class="social-row">
+          <a class="btn" href="https://www.tiktok.com/@drawandlearnbob">TikTok · @drawandlearnbob</a>
+          <a class="btn" href="https://www.instagram.com/drawandlearnbob/">Instagram · @drawandlearnbob</a>
+          <a class="btn" href="https://www.youtube.com/@DrawLearnwithBob">YouTube · Draw &amp; Learn with Bob</a>
+          <a class="btn" href="https://www.facebook.com/profile.php?id=61594829610568">Facebook · Draw &amp; Learn with Bob</a>
+        </div>
+
+        <h3 class="sub-h">Real problems I hit, and how I solved them</h3>
+        <div class="lessons">
+          <div class="lesson">
+            <h4>Getting through App Review</h4>
+            <p><b>Problem</b>An early submission was bounced: in-app purchase products were stuck in "Missing Metadata".</p>
+            <p><b class="fix">Solution</b>Traced the exact missing field through the App Store Connect API, simplified the launch to a free app, resubmitted and got approved.</p>
+          </div>
+          <div class="lesson">
+            <h4>Proving a kids app is private</h4>
+            <p><b>Problem</b>Apple's Kids review flagged a data questionnaire on the v1.1 update.</p>
+            <p><b class="fix">Solution</b>Audited the compiled app: only Apple frameworks, no network or tracking code, every link behind a parental gate. Replied with the evidence and resubmitted.</p>
+          </div>
+          <div class="lesson">
+            <h4>Slow, error-prone releases</h4>
+            <p><b>Problem</b>Clicking through archive, upload, metadata and submission by hand wasted hours and caused mistakes.</p>
+            <p><b class="fix">Solution</b>Built a command-line pipeline: <code>xcodebuild</code> archive and export, upload, then the App Store Connect API to attach the build, update metadata and submit.</p>
+          </div>
+          <div class="lesson">
+            <h4>Dozens of store screenshots</h4>
+            <p><b>Problem</b>Every device size and English locale needs its own set of screenshots.</p>
+            <p><b class="fix">Solution</b>Wrote UI tests that drive the app and capture the screenshots automatically, so every release gets fresh, consistent images.</p>
+          </div>
+          <div class="lesson">
+            <h4>Bugs only real devices show</h4>
+            <p><b>Problem</b>On my own iPhone and iPad, long words (ACCORDION) clipped the letter-sound buttons and Bob covered the top controls.</p>
+            <p><b class="fix">Solution</b>Reproduced on device, fixed the layout and Bob's starting position, and re-tested before shipping.</p>
+          </div>
+          <div class="lesson">
+            <h4>Nobody could find the app</h4>
+            <p><b>Problem</b>On launch day the generic name did not rank for any search.</p>
+            <p><b class="fix">Solution</b>Keyword research, a clearer name and subtitle, listings for UK, US, Canada and Australia, Apple Search Ads on a strict budget, and short video ads like the ones above.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -296,8 +446,8 @@
 
   <section id="projects">
     <div class="wrap">
-      <p class="sec-label">Projects</p>
-      <h2>Projects I've built</h2>
+      <p class="sec-label">More projects</p>
+      <h2>Other projects I've built</h2>
       <div class="grid">
 
         <article class="card" data-card-url="https://synckser.github.io/game-final/" role="link" tabindex="0">
@@ -336,25 +486,6 @@
           <a class="go" href="https://github.com/synckser/data-vis">View the code &rarr;</a>
         </article>
 
-        <article class="card" data-card-url="draw-and-learn/" role="link" tabindex="0">
-          <h3>Draw &amp; Learn: iOS app</h3>
-          <div class="card-shots">
-            <a href="draw-and-learn/" aria-label="Home screen"><img loading="lazy" src="draw-and-learn/assets/screenshots/home.jpg" alt="Draw & Learn home screen"></a>
-            <a href="draw-and-learn/" aria-label="Tracing screen"><img loading="lazy" src="draw-and-learn/assets/screenshots/drawing.jpg" alt="Draw & Learn tracing screen"></a>
-            <a href="draw-and-learn/" aria-label="Finished drawing"><img loading="lazy" src="draw-and-learn/assets/screenshots/coloring.jpg" alt="Draw & Learn finished drawing"></a>
-          </div>
-          <div class="tags">
-            <span class="tag">Swift</span><span class="tag">iOS</span>
-            <span class="tag">AI APIs</span><span class="tag">Independent</span>
-          </div>
-          <p>A children's educational drawing and learning app I design and build independently.
-             AI-generated speech and sounds for the app's mascot via the Gemini and ElevenLabs APIs,
-             Python pipelines for asset and screenshot automation, and App Store metadata localised
-             into multiple languages.</p>
-          <a class="go" href="draw-and-learn/">See the case study &rarr;</a>
-          <span class="status">Going through App Store submission</span>
-        </article>
-
         <article class="card">
           <h3>AI Tooling &amp; Automation</h3>
           <div class="tags">
@@ -384,6 +515,27 @@
           <a class="go" href="#hardware-maintenance">View repair work &rarr;</a>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <p class="sec-label">Professional Profile</p>
+      <h2>Reliable, technical and comfortable solving real problems</h2>
+      <div class="about-panel">
+        <img loading="lazy" src="assets/profile/roberto-office.png" alt="Roberto Pires Almeida standing in a professional office setting">
+        <div class="about-copy">
+          <p>I am looking for IT support, application support, junior development or technical operations roles in and around Cambridge. My background combines customer-facing public-sector work, formal computer science study and independent project delivery.</p>
+          <p>Employers get someone who can communicate clearly with people, learn technical systems quickly, and keep working through problems until there is a practical result.</p>
+          <ul class="career-points">
+            <li><strong>Current study:</strong> BSc Computer Science with planned Machine Learning &amp; AI specialism, with an 83% average across completed modules (first-class level).</li>
+            <li><strong>Shipped product:</strong> Draw &amp; Learn, my own iOS app, live on the App Store and maintained through several releases.</li>
+            <li><strong>Practical projects:</strong> iOS app development, JavaScript games, data visualisation, AI APIs and automation.</li>
+            <li><strong>IT foundations:</strong> Google IT Support and Cybersecurity certificates, Linux, networking, diagnostics and system administration basics.</li>
+            <li><strong>Hands-on mindset:</strong> years of computer maintenance, Mac repair, upgrades and troubleshooting.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -479,7 +631,7 @@
         <h3>Programming</h3>
         <div class="chips">
           <span class="chip">Python</span><span class="chip">JavaScript / p5.js</span>
-          <span class="chip">Swift (iOS)</span><span class="chip">SQL</span>
+          <span class="chip">Swift / SwiftUI (iOS)</span><span class="chip">SQL</span>
           <span class="chip">Git &amp; GitHub</span>
         </div>
       </div>
@@ -505,6 +657,14 @@
           <span class="chip">AI coding agents</span><span class="chip">Prompt engineering</span>
           <span class="chip">Claude / Gemini / ElevenLabs APIs</span><span class="chip">Local AI models</span>
           <span class="chip">Xcode &amp; VS Code</span><span class="chip">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>App shipping</h3>
+        <div class="chips">
+          <span class="chip">App Store Connect &amp; API</span><span class="chip">App Review &amp; guidelines</span>
+          <span class="chip">Kids privacy compliance</span><span class="chip">Release automation (xcodebuild, fastlane)</span>
+          <span class="chip">UI testing (XCUITest)</span><span class="chip">App Store optimisation &amp; Apple Ads</span>
         </div>
       </div>
     </div>
