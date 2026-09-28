@@ -3,3 +3,4 @@
 *.jpeg
 I.T PICTURES/
 !draw-and-learn/assets/demo.mp4
+!draw-and-learn/assets/videos/*.mp4
