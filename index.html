@@ -360,25 +360,25 @@
         <h3 class="sub-h">See it in action</h3>
         <div class="video-row">
           <figure>
-            <video controls muted playsinline preload="none" poster="draw-and-learn/assets/videos/meet-bob.jpg">
+            <video controls playsinline preload="none" poster="draw-and-learn/assets/videos/meet-bob.jpg">
               <source src="draw-and-learn/assets/videos/meet-bob.mp4" type="video/mp4">
             </video>
             <figcaption>Meet Bob, the talking robot</figcaption>
           </figure>
           <figure>
-            <video controls muted playsinline preload="none" poster="draw-and-learn/assets/videos/colour-with-bob.jpg">
+            <video controls playsinline preload="none" poster="draw-and-learn/assets/videos/colour-with-bob.jpg">
               <source src="draw-and-learn/assets/videos/colour-with-bob.mp4" type="video/mp4">
             </video>
             <figcaption>Colouring and first words</figcaption>
           </figure>
           <figure>
-            <video controls muted playsinline preload="none" poster="draw-and-learn/assets/videos/tracing.jpg">
+            <video controls playsinline preload="none" poster="draw-and-learn/assets/videos/tracing.jpg">
               <source src="draw-and-learn/assets/videos/tracing.mp4" type="video/mp4">
             </video>
             <figcaption>Guided tracing</figcaption>
           </figure>
           <figure>
-            <video controls muted playsinline preload="none" poster="draw-and-learn/assets/videos/pick-and-draw.jpg">
+            <video controls playsinline preload="none" poster="draw-and-learn/assets/videos/pick-and-draw.jpg">
               <source src="draw-and-learn/assets/videos/pick-and-draw.mp4" type="video/mp4">
             </video>
             <figcaption>Pick a picture, start drawing</figcaption>
@@ -737,6 +737,14 @@
       event.preventDefault();
       openCard();
     });
+  });
+</script>
+
+<script>
+  // Start demo videos at a comfortable low-medium volume when played.
+  document.querySelectorAll("video").forEach((v) => {
+    v.volume = 0.35;
+    v.addEventListener("play", () => { v.muted = false; });
   });
 </script>
 

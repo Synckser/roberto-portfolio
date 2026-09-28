@@ -208,10 +208,10 @@
       <h2>The app in action</h2>
       <p class="sec-lead">Short videos I produced from real screen recordings of the app. The same clips run as ads and posts on the app's social channels.</p>
       <div class="videos">
-        <figure class="shot"><video controls muted playsinline preload="none" poster="assets/videos/meet-bob.jpg"><source src="assets/videos/meet-bob.mp4" type="video/mp4"></video><figcaption>Meet Bob, the talking robot</figcaption></figure>
-        <figure class="shot"><video controls muted playsinline preload="none" poster="assets/videos/colour-with-bob.jpg"><source src="assets/videos/colour-with-bob.mp4" type="video/mp4"></video><figcaption>Colouring and first words</figcaption></figure>
-        <figure class="shot"><video controls muted playsinline preload="none" poster="assets/videos/tracing.jpg"><source src="assets/videos/tracing.mp4" type="video/mp4"></video><figcaption>Guided tracing</figcaption></figure>
-        <figure class="shot"><video controls muted playsinline preload="none" poster="assets/videos/pick-and-draw.jpg"><source src="assets/videos/pick-and-draw.mp4" type="video/mp4"></video><figcaption>Pick a picture, start drawing</figcaption></figure>
+        <figure class="shot"><video controls playsinline preload="none" poster="assets/videos/meet-bob.jpg"><source src="assets/videos/meet-bob.mp4" type="video/mp4"></video><figcaption>Meet Bob, the talking robot</figcaption></figure>
+        <figure class="shot"><video controls playsinline preload="none" poster="assets/videos/colour-with-bob.jpg"><source src="assets/videos/colour-with-bob.mp4" type="video/mp4"></video><figcaption>Colouring and first words</figcaption></figure>
+        <figure class="shot"><video controls playsinline preload="none" poster="assets/videos/tracing.jpg"><source src="assets/videos/tracing.mp4" type="video/mp4"></video><figcaption>Guided tracing</figcaption></figure>
+        <figure class="shot"><video controls playsinline preload="none" poster="assets/videos/pick-and-draw.jpg"><source src="assets/videos/pick-and-draw.mp4" type="video/mp4"></video><figcaption>Pick a picture, start drawing</figcaption></figure>
       </div>
       <div class="shots" id="shots" style="margin-top:40px">
         <figure class="shot"><img loading="lazy" src="assets/store/shot-1.jpg" alt="Bob cheering after a child colours a dolphin"><figcaption>Bob cheers on every picture</figcaption></figure>
@@ -306,6 +306,14 @@
     <p class="foot-note">The source code is private; this page is a portfolio showcase. &nbsp;·&nbsp; <a href="../index.html#projects">Back to portfolio</a></p>
   </div>
 </footer>
+
+<script>
+  // Start demo videos at a comfortable low-medium volume when played.
+  document.querySelectorAll("video").forEach((v) => {
+    v.volume = 0.35;
+    v.addEventListener("play", () => { v.muted = false; });
+  });
+</script>
 
 </body>
 </html>
